@@ -8,7 +8,7 @@ class MovieVO{
   @JsonKey(name: "adult")
   bool? adult;
 
-  @JsonKey(name:"backdrop_path" )
+  @JsonKey(name:"backdrop_path")
   String? backDropPath;
 
   @JsonKey(name:"genre_ids" )

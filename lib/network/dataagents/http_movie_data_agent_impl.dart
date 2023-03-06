@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:movie_app/network/api_constant.dart';
-import 'package:movie_app/network/movie_data_agent.dart';
 import 'package:http/http.dart' as http;
+
+import 'movie_data_agent.dart';
 
 class HttpMovieDataAgentImpl extends MovieDataAgent {
   @override

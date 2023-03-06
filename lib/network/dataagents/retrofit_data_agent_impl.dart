@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:movie_app/network/api_constant.dart';
-import 'package:movie_app/network/movie_data_agent.dart';
 import 'package:movie_app/network/the_movie_api.dart';
+
+import 'movie_data_agent.dart';
 
 class RetrofitDataAgentImpl extends MovieDataAgent{
 

@@ -1,8 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:movie_app/network/movie_data_agent.dart';
-
-import 'api_constant.dart';
+import '../api_constant.dart';
+import 'movie_data_agent.dart';
 
 class DioMovieDataAgentImpl extends MovieDataAgent {
   @override
