@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/data/vos/actor_vo.dart';
+import 'package:movie_app/network/api_constant.dart';
 import 'package:movie_app/resources/colors.dart';
 import 'package:movie_app/resources/dimens.dart';
 
 class ActorView extends StatelessWidget {
+
+  late final ActorVO? actor;
+
+
+  ActorView({required this.actor});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -11,7 +19,9 @@ class ActorView extends StatelessWidget {
       child: Stack(
         children: [
           Positioned.fill(
-            child: ActorImageView(),
+            child: ActorImageView(
+              actorProfilePath: actor?.profilePath ?? "",
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(MARGIN_MEDIUM),
@@ -22,7 +32,7 @@ class ActorView extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: ActorNameAndLikeView(),
+            child: ActorNameAndLikeView(actorName: actor?.name ?? ""),
           )
         ],
       ),
@@ -31,11 +41,15 @@ class ActorView extends StatelessWidget {
 }
 
 class ActorImageView extends StatelessWidget {
+  late final String actorProfilePath;
+
+
+  ActorImageView({required this.actorProfilePath});
 
   @override
   Widget build(BuildContext context) {
     return Image.network(
-        "https://images.ctfassets.net/w2dr5qwt1rrm/4gb7MaZdmGjp3kPDuy0JGc/915f56761af565f28d11cba34c7e49a1/Tom_Cruise.jpg?w=1706&h=2272&fit=fill&q=70&fm=jpg",
+        "$IMAGE_BASE_URL$actorProfilePath",
         fit: BoxFit.cover);
   }
 }
@@ -55,7 +69,10 @@ class FavouriteButtomView extends StatelessWidget {
 }
 
 class ActorNameAndLikeView extends StatelessWidget {
+  late String actorName;
 
+
+  ActorNameAndLikeView({required this.actorName});
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +86,7 @@ class ActorNameAndLikeView extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "Tom Cruise",
+            actorName,
             style: TextStyle(
               color: Colors.white,
               fontSize: TEXT_REGULAR,

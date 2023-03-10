@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/network/api_constant.dart';
 import 'package:movie_app/resources/dimens.dart';
 import 'package:movie_app/widgets/play_button_view.dart';
 import 'package:movie_app/widgets/title_text.dart';
 
-class ShowCaseView extends StatelessWidget{
+import '../data/vos/movie_vo.dart';
 
+class ShowCaseView extends StatelessWidget{
+  late final MovieVO movie;
+
+
+  ShowCaseView({required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +21,7 @@ class ShowCaseView extends StatelessWidget{
         children: [
           Positioned.fill(
             child: Image.network(
-              "https://lumiere-a.akamaihd.net/v1/images/the_wolverine_-_feature_71479c84.png",
+              "$IMAGE_BASE_URL${movie?.posterPath}",
               fit: BoxFit.cover,
             ),
           ),
@@ -32,7 +38,7 @@ class ShowCaseView extends StatelessWidget{
                 mainAxisSize: MainAxisSize.min,
                 children: [
                     Text(
-                        "Passengers",
+                       movie?.title ?? "",
                         style:TextStyle(
                           color: Colors.white,
                           fontSize: TEXT_REGULAR_2X,

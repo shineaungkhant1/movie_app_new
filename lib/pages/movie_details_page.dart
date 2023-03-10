@@ -34,7 +34,7 @@ class MovieDetalisPage extends StatelessWidget {
                   SizedBox(height: MARGIN_LARGE),
                   ActorsAndCreatorSectionView(
                       MOVIE_DETAILS_SCREEN_ACTORS_TITLE, "",
-                      seeMoreButtonVisibility: false),
+                      seeMoreButtonVisibility: false, actorsList: [],),
                   SizedBox(height:MARGIN_LARGE),
                   Container(
                     padding: EdgeInsets.symmetric(
@@ -44,7 +44,7 @@ class MovieDetalisPage extends StatelessWidget {
                   SizedBox(height:MARGIN_LARGE),
                   ActorsAndCreatorSectionView(
                       MOVIE_DETAILS_SCREEN_CREATORS_TITLE,
-                      MOVIE_DETAILS_SCREEN_CREATORS_SEE_MORE)
+                      MOVIE_DETAILS_SCREEN_CREATORS_SEE_MORE, actorsList: [],)
                 ],
               ),
             ),

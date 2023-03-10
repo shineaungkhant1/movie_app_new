@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/widgets/title_text_with_see_more_view.dart';
 
+import '../data/vos/actor_vo.dart';
 import '../resources/colors.dart';
 import '../resources/dimens.dart';
 import '../resources/strings.dart';
@@ -11,11 +12,12 @@ class ActorsAndCreatorSectionView extends StatelessWidget {
   final String titleText;
   final String seeMoreText;
   final bool seeMoreButtonVisibility;
+  final List<ActorVO>? actorsList;
 
   ActorsAndCreatorSectionView(
       this.titleText,
       this.seeMoreText,
-      {this.seeMoreButtonVisibility=true}
+      {this.seeMoreButtonVisibility=true,required this.actorsList}
       );
 
   @override
@@ -42,11 +44,13 @@ class ActorsAndCreatorSectionView extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               padding: EdgeInsets.only(left: MARGIN_MEDIUM_2),
-              children: [
-                ActorView(),
-                ActorView(),
-                ActorView(),
-              ],
+              children: actorsList
+              ?.map((actor) => ActorView(
+                actor : actor,
+              ),
+              )
+              .toList() ??
+              [],
             ),
           ),
         ]),

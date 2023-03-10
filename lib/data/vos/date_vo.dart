@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'date_vo.g.part';
+part 'date_vo.g.dart';
 
 @JsonSerializable()
 class DateVO{
