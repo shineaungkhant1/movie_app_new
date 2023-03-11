@@ -122,8 +122,25 @@ class MovieVO{
 
   Map<String,dynamic> toJson() => _$MovieVOToJson(this);
 
+  List<String> getGenreListAsStringList() {
+    return genres?.map((genre) => genre.name ?? "").toList() ?? [];
+  }
+  String getGenreListAsCommaSeparatedString(){
+    return genres?.map((genre) => genre.name ?? "").toList().join(",") ?? "";
+  }
+
+  String getProductionCountriesAsComaSeparatedString(){
+    return productionCountries
+        ?.map((country) => country.name ?? "")
+        .toList()
+        .join(",") ??
+    "";
+  }
+
   @override
   String toString() {
     return 'MovieVO{adult: $adult, backDropPath: $backDropPath, genreIds: $genreIds, id: $id, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overView: $overView, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, title: $title, video: $video, voteAverage: $voteAverage, voteCount: $voteCount}';
   }
+
+
 }
